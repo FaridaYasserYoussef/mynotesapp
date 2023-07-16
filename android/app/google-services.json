@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591139904486",
+    "project_id": "didasnotes",
+    "storage_bucket": "didasnotes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591139904486:android:93a6d8bb19c53d1b765427",
+        "android_client_info": {
+          "package_name": "com.makingstuffup.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591139904486-7qpc6hhhk2i7fvj8jju7vm3hmt51vk84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy5opx_fY67icEnw7e1yln1LHodDFKKz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591139904486-7qpc6hhhk2i7fvj8jju7vm3hmt51vk84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
