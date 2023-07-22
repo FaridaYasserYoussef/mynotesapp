@@ -19,33 +19,13 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
         title: const Text("Verify Your Email"),
-        actions: [
-          PopupMenuButton<MenuAction>(
-            onSelected: (value) async {
-              switch (value) {
-                case MenuAction.logout:
-                  final shouldLogout = await showLogoutDialog(context);
-                  if (shouldLogout) {
-                    await FirebaseAuth.instance.signOut();
-                    Navigator.of(context)
-                        .pushNamedAndRemoveUntil(loginRoute, (_) => false);
-                  }
-              }
-            },
-            itemBuilder: (context) {
-              return const [
-                PopupMenuItem<MenuAction>(
-                  value: MenuAction.logout,
-                  child: Text("Logout"),
-                )
-              ];
-            },
-          )
-        ],
       ),
       body: Column(
         children: [
-          const Text("Please Verify your email address"),
+          const Text(
+              "We've sent you a verification email, please open it to verify your account."),
+          const Text(
+              "If you haven't received a verification email, press the button below."),
           TextButton(
             onPressed: () async {
               final user = FirebaseAuth.instance.currentUser;
@@ -53,6 +33,14 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                   ?.sendEmailVerification(); //since its a future you need to await on it
             },
             child: const Text("Send Email Verification"),
+          ),
+          TextButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(registerRoute, (route) => false);
+            },
+            child: const Text("restart"),
           )
         ],
       ),
