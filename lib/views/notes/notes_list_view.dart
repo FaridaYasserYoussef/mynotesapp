@@ -1,17 +1,21 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/services/crud/notes_service.dart';
 
 import '../../utilities/dialogs/delete_dialog.dart';
 
-typedef DeleteNoteCallback = void Function(DatabaseNote note);
+typedef NoteCallback = void Function(DatabaseNote note);
+
 // a type that must be given to a function that takes in a DatabaseNote as a parameter
 
 class NotesListView extends StatelessWidget {
   final List<DatabaseNote> notes;
-  final DeleteNoteCallback onDeleteNote;
+  final NoteCallback onDeleteNote;
+  final NoteCallback onTap;
   const NotesListView(
-      {super.key, required this.notes, required this.onDeleteNote});
+      {super.key,
+      required this.notes,
+      required this.onDeleteNote,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,9 @@ class NotesListView extends StatelessWidget {
             },
             icon: const Icon(Icons.delete),
           ),
+          onTap: () {
+            onTap(note);
+          },
         );
       },
     );
